@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/Nuevacapaborrador_MultiRingBuffer_0.js"></script>
+        <script src="data/MUNICIPIOS_1.js"></script>
+        <script src="data/MUNICIPIOS_2.js"></script>
+        <script src="data/Nuevacapaborrador_3.js"></script>
+        <script src="data/Actividades_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[35.399276824331366,-7.387512633163977],[40.56363849686194,2.5772588285342346]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_Nuevacapaborrador_MultiRingBuffer_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['mrb_dist:(0,0)'] !== null ? autolinker.link(feature.properties['mrb_dist:(0,0)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Nuevacapaborrador_MultiRingBuffer_0_0(feature) {
+            switch(String(feature.properties['mrb_dist'])) {
+                case '0.5':
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1':
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,204,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1.5':
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,153,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,102,102,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '2.5':
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,51,51,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,0,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Nuevacapaborrador_MultiRingBuffer_0');
+        map.getPane('pane_Nuevacapaborrador_MultiRingBuffer_0').style.zIndex = 400;
+        map.getPane('pane_Nuevacapaborrador_MultiRingBuffer_0').style['mix-blend-mode'] = 'normal';
+        var layer_Nuevacapaborrador_MultiRingBuffer_0 = new L.geoJson(json_Nuevacapaborrador_MultiRingBuffer_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Nuevacapaborrador_MultiRingBuffer_0',
+            layerName: 'layer_Nuevacapaborrador_MultiRingBuffer_0',
+            pane: 'pane_Nuevacapaborrador_MultiRingBuffer_0',
+            onEachFeature: pop_Nuevacapaborrador_MultiRingBuffer_0,
+            style: style_Nuevacapaborrador_MultiRingBuffer_0_0,
+        });
+        bounds_group.addLayer(layer_Nuevacapaborrador_MultiRingBuffer_0);
+        map.addLayer(layer_Nuevacapaborrador_MultiRingBuffer_0);
+        function pop_MUNICIPIOS_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_MUNI'] !== null ? autolinker.link(feature.properties['COD_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOM_MUNI'] !== null ? autolinker.link(feature.properties['NOM_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_COMAR'] !== null ? autolinker.link(feature.properties['COD_COMAR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_PROV'] !== null ? autolinker.link(feature.properties['COD_PROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_CCAA'] !== null ? autolinker.link(feature.properties['COD_CCAA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PERI_MUNI'] !== null ? autolinker.link(feature.properties['PERI_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_MUNI'] !== null ? autolinker.link(feature.properties['AREA_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_TOTAL'] !== null ? autolinker.link(feature.properties['AREA_TOTAL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MUNICIPIOS_1_0() {
+            return {
+                pane: 'pane_MUNICIPIOS_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MUNICIPIOS_1');
+        map.getPane('pane_MUNICIPIOS_1').style.zIndex = 401;
+        map.getPane('pane_MUNICIPIOS_1').style['mix-blend-mode'] = 'normal';
+        var layer_MUNICIPIOS_1 = new L.geoJson(json_MUNICIPIOS_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MUNICIPIOS_1',
+            layerName: 'layer_MUNICIPIOS_1',
+            pane: 'pane_MUNICIPIOS_1',
+            onEachFeature: pop_MUNICIPIOS_1,
+            style: style_MUNICIPIOS_1_0,
+        });
+        bounds_group.addLayer(layer_MUNICIPIOS_1);
+        map.addLayer(layer_MUNICIPIOS_1);
+        function pop_MUNICIPIOS_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_MUNI'] !== null ? autolinker.link(feature.properties['COD_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOM_MUNI'] !== null ? autolinker.link(feature.properties['NOM_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_COMAR'] !== null ? autolinker.link(feature.properties['COD_COMAR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_PROV'] !== null ? autolinker.link(feature.properties['COD_PROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_CCAA'] !== null ? autolinker.link(feature.properties['COD_CCAA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PERI_MUNI'] !== null ? autolinker.link(feature.properties['PERI_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_MUNI'] !== null ? autolinker.link(feature.properties['AREA_MUNI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_TOTAL'] !== null ? autolinker.link(feature.properties['AREA_TOTAL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MUNICIPIOS_2_0() {
+            return {
+                pane: 'pane_MUNICIPIOS_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,178,151,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MUNICIPIOS_2');
+        map.getPane('pane_MUNICIPIOS_2').style.zIndex = 402;
+        map.getPane('pane_MUNICIPIOS_2').style['mix-blend-mode'] = 'normal';
+        var layer_MUNICIPIOS_2 = new L.geoJson(json_MUNICIPIOS_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MUNICIPIOS_2',
+            layerName: 'layer_MUNICIPIOS_2',
+            pane: 'pane_MUNICIPIOS_2',
+            onEachFeature: pop_MUNICIPIOS_2,
+            style: style_MUNICIPIOS_2_0,
+        });
+        bounds_group.addLayer(layer_MUNICIPIOS_2);
+        map.addLayer(layer_MUNICIPIOS_2);
+        function pop_Nuevacapaborrador_3(feature, layer) {
+        }
+
+        function style_Nuevacapaborrador_3_0() {
+            return {
+                pane: 'pane_Nuevacapaborrador_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Nuevacapaborrador_3');
+        map.getPane('pane_Nuevacapaborrador_3').style.zIndex = 403;
+        map.getPane('pane_Nuevacapaborrador_3').style['mix-blend-mode'] = 'normal';
+        var layer_Nuevacapaborrador_3 = new L.geoJson(json_Nuevacapaborrador_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Nuevacapaborrador_3',
+            layerName: 'layer_Nuevacapaborrador_3',
+            pane: 'pane_Nuevacapaborrador_3',
+            onEachFeature: pop_Nuevacapaborrador_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Nuevacapaborrador_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Nuevacapaborrador_3);
+        map.addLayer(layer_Nuevacapaborrador_3);
+        function pop_Actividades_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['carretera'] !== null ? autolinker.link(feature.properties['carretera'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fecha'] !== null ? autolinker.link(feature.properties['fecha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['observaciones'] !== null ? autolinker.link(feature.properties['observaciones'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['empresa'] !== null ? autolinker.link(feature.properties['empresa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['estado'] !== null ? autolinker.link(feature.properties['estado'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Actividades_4_0(feature) {
+            switch(String(feature.properties['estado'])) {
+                case '1':
+                    return {
+                pane: 'pane_Actividades_4',
+                interactive: true,
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Actividades_4',
+                interactive: true,
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_Actividades_4',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Actividades_4');
+        map.getPane('pane_Actividades_4').style.zIndex = 404;
+        map.getPane('pane_Actividades_4').style['mix-blend-mode'] = 'normal';
+        var layer_Actividades_4 = new L.geoJson(json_Actividades_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Actividades_4',
+            layerName: 'layer_Actividades_4',
+            pane: 'pane_Actividades_4',
+            onEachFeature: pop_Actividades_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Actividades_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Actividades_4);
+        map.addLayer(layer_Actividades_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Actividades<br /><table><tr><td style="text-align: center;"><img src="legend/Actividades_4_NoIniciada0.png" /></td><td>No Iniciada</td></tr><tr><td style="text-align: center;"><img src="legend/Actividades_4_Enreparacion1.png" /></td><td>En reparacion</td></tr><tr><td style="text-align: center;"><img src="legend/Actividades_4_Terminada2.png" /></td><td>Terminada</td></tr></table>': layer_Actividades_4,'<img src="legend/Nuevacapaborrador_3.png" /> Nueva capa borrador': layer_Nuevacapaborrador_3,'<img src="legend/MUNICIPIOS_2.png" /> MUNICIPIOS': layer_MUNICIPIOS_2,'<img src="legend/MUNICIPIOS_1.png" /> MUNICIPIOS': layer_MUNICIPIOS_1,'Nueva capa borrador_MultiRingBuffer<br /><table><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_050.png" /></td><td>0.5</td></tr><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_11.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_152.png" /></td><td>1.5</td></tr><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_23.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_254.png" /></td><td>2.5</td></tr><tr><td style="text-align: center;"><img src="legend/Nuevacapaborrador_MultiRingBuffer_0_5.png" /></td><td></td></tr></table>': layer_Nuevacapaborrador_MultiRingBuffer_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_MUNICIPIOS_2.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NOM_MUNI'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'Ubuntu\', sans-serif;">' + layer.feature.properties['NOM_MUNI']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MUNICIPIOS_2'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_MUNICIPIOS_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'NOM_MUNI'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_MUNICIPIOS_2,layer_Actividades_4]);
+        map.on("zoomend", function(){
+            resetLabels([layer_MUNICIPIOS_2,layer_Actividades_4]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_MUNICIPIOS_2,layer_Actividades_4]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_MUNICIPIOS_2,layer_Actividades_4]);
+        });
+        </script>
+    </body>
+</html>
